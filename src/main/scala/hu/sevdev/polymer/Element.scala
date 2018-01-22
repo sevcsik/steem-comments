@@ -1,6 +1,7 @@
 package hu.sevdev.polymer
 
 import scala.scalajs.js
+import scala.scalajs.js.annotation.JSExportStatic
 import scala.scalajs.js.annotation.JSGlobal
 import org.scalajs.dom.html
 
@@ -20,11 +21,15 @@ abstract class Element extends html.Element {
   def disconnectedCallback: Unit = js.native
 }
 
+trait ElementDefinition {
+  val is: String
+  val template: String = null
+  val properties: js.Object = null
+  val observers: String = null
+}
+
 @js.native
-@JSGlobal("Polymer.Element")
-object Element extends js.Object {
-  val is: String = js.native
-  val template: String = js.native
-  val properties: js.Object = js.native
-  val observers: String = js.native
+@JSGlobal("window.customElements")
+object customElements extends js.Object {
+  def define(name: String, klass: js.Dynamic): Unit = js.native
 }
