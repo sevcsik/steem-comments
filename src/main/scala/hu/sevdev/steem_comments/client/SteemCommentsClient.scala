@@ -3,10 +3,8 @@ package hu.sevdev.steem_comments.client
 import hu.sevdev.polymer
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.ScalaJSDefined
 import scala.scalajs.js.annotation.JSExportStatic
 
-@ScalaJSDefined
 class SteemComments extends polymer.Element
 
 object SteemComments extends polymer.ElementDefinition {
