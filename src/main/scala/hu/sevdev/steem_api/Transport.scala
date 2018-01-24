@@ -1,9 +1,9 @@
 package hu.sevdev.steem_api
 
-trait TransportComponent {
-  def transport: Transport
-
+trait TransportModule {
   trait Transport {
-    val info: String
+    val name: String
   }
+
+  def transport: Transport
 }

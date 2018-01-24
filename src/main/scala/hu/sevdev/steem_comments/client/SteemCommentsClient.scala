@@ -1,33 +1,35 @@
 package hu.sevdev.steem_comments.client
 
 import hu.sevdev.polymer
-import hu.sevdev.steem_api.{ TransportComponent, DomWsTransportComponent }
+import hu.sevdev.steem_api.{ DomWsTransportModule, ConfigModule, SteemClient }
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{ JSExportStatic, JSName }
 
-class SteemComments extends polymer.Element {
-  override def connectedCallback(): Unit = {
-    super.connectedCallback
-    println("Connected")
-  }
-}
-
-object SteemComments extends polymer.ElementCompanion {
-  @JSExportStatic
-  def is: String = "steem-comments"
-  @JSExportStatic
-  override def template: String = "Hello, world!"
-}
-
 object SteemCommentClient {
   def main(args: Array[String]): Unit = {
 
-    val t = new TransportComponent with DomWsTransportComponent {
-      val baseUrl = "ws://echo.websocket.org"
+    class SteemComments extends polymer.Element {
+      override def connectedCallback(): Unit = {
+        super.connectedCallback
+        println("Connected")
+      }
     }
 
-    println(t.transport.info)
+    object SteemComments extends polymer.ElementCompanion {
+      @JSExportStatic
+      def is: String = "steem-comments"
+      @JSExportStatic
+      override def template: String = "Hello, world!"
+    }
+
+    object client extends SteemClient with DomWsTransportModule with ConfigModule {
+      val config = new Config {
+        def baseUrl = "ws://example.com"
+      }
+    }
+
+    println(client.info)
 
     polymer.Element.define[SteemComments](SteemComments)
   }
