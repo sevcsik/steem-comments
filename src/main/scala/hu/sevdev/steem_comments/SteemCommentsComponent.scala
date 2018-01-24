@@ -3,7 +3,7 @@ package hu.sevdev.steem_comments
 import hu.sevdev.polymer.{ Element, ElementCompanion }
 import hu.sevdev.steem_api.SteemClient
 
-import scala.scalajs.js.annotation.{ JSExportStatic }
+import scala.scalajs.js.annotation.{ JSExportStatic, ScalaJSDefined }
 
 class SteemCommentsComponent extends Element {
   override def connectedCallback(): Unit = {
