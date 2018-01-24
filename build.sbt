@@ -7,6 +7,7 @@ name := "Steem Comments Component"
 scalaVersion := "2.11.11"
 
 libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.4"
+libraryDependencies += "com.github.lukajcb" %%% "rxscala-js" % "0.15.2"
 
 scalaJSUseMainModuleInitializer := true
 
