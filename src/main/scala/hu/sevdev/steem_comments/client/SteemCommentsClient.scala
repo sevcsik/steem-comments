@@ -3,23 +3,24 @@ package hu.sevdev.steem_comments.client
 import hu.sevdev.polymer
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.JSExportStatic
+import scala.scalajs.js.annotation.{ JSExportStatic, JSName }
 
-class SteemComments extends polymer.Element
+class SteemComments extends polymer.Element {
+  override def connectedCallback(): Unit = {
+    super.connectedCallback
+    println("Connected")
+  }
+}
 
-object SteemComments extends polymer.ElementDefinition {
+object SteemComments extends polymer.ElementCompanion {
   @JSExportStatic
-  val is: String = "steem-comments"
+  def is: String = "steem-comments"
   @JSExportStatic
-  override val template: String = "Hello, world!"
-  @JSExportStatic
-  override val properties: js.Object = null
-  @JSExportStatic
-  override val observers: String = null
+  override def template: String = "Hello, world!"
 }
 
 object SteemCommentClient {
   def main(args: Array[String]): Unit = {
-    polymer.customElements.define("steem-comments", js.constructorTag[SteemComments].constructor)
+    polymer.Element.define[SteemComments](SteemComments)
   }
 }
