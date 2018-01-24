@@ -1,8 +1,13 @@
+import org.scalajs.core.tools.linker.standard._
+
 enablePlugins(ScalaJSPlugin)
+enablePlugins(JSDependenciesPlugin)
 
-name := "Steem Comments Widget"
+name := "Steem Comments Component"
 scalaVersion := "2.11.11"
-libraryDependencies += "org.scala-js" % "scalajs-dom_sjs1.0.0-M2_2.11" % "0.9.4"
 
+libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.4"
 scalaJSUseMainModuleInitializer := true
+
+scalaJSLinkerConfig ~= { _.withOutputMode(OutputMode.ECMAScript2015) }
 

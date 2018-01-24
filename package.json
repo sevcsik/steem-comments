@@ -1,0 +1,34 @@
+{
+  "name": "steem-comments-component",
+  "version": "0.0.0",
+  "description": "A Polymer component to embed a steem comment page into a website",
+  "main": "-",
+  "scripts": {
+    "build": "sbt fastOptJS",
+    "demo": "echo Open http://http://localhost:8080/src/demo/resources/html/demo.html && http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sevcsik/steem-comments.git"
+  },
+  "keywords": [
+    "polymer",
+    "steem",
+    "comments"
+  ],
+  "author": "Andras Sevcsik <sevcsik@sevdev.hu>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sevcsik/steem-comments/issues"
+  },
+  "homepage": "https://github.com/sevcsik/steem-comments#readme",
+  "devDependencies": {
+    "@polymer/polymer": "^2.3.1",
+    "@webcomponents/webcomponentsjs": "^1.1.0",
+    "http-server": "^0.11.1"
+  },
+  "dependencies": {
+    "@webcomponents/shadycss": "^1.1.1"
+  }
+}

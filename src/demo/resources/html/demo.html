@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<title>Steem Comments Demo</title>
+	<base href="../../../..">
+	<link rel="import" href="node_modules/@webcomponents/shadycss/apply-shim.html">
+	<link rel="import" href="node_modules/@webcomponents/shadycss/custom-style-interface.html">
+	<link rel="import" href="node_modules/@polymer/polymer/polymer.html">
+	<script>
+		// https://www.webcomponents.org/polyfills/
+		(function() {
+			if ('registerElement' in document
+				&& 'import' in document.createElement('link')
+				&& 'content' in document.createElement('template')) {
+				// platform is good!
+				var e = document.createElement('script');
+				e.src = 'target/scala-2.11/steem-comments-component-fastopt.js';
+				document.head.appendChild(e);
+			} else {
+				// polyfill the platform!
+				var e = document.createElement('script');
+				e.src = 'node_modules/@webcomponents/webcomponentsjs/webcomponents-lite.js';
+				document.head.appendChild(e);
+
+				window.addEventListener('WebComponentsReady', function(e) {
+					// imports are loaded and elements have been registered
+					var e = document.createElement('script');
+					e.src = 'target/scala-2.11/steem-comments-component-fastopt.js';
+					document.head.appendChild(e);
+				});
+			}
+		})();
+	</script>
+</head>
+<body>
+	<steem-comments article="@albertogm/crypto-mining-powered-by-steem-a-smt-project-for-2018">
+	</steem-comments>
+</body>
+</html>
