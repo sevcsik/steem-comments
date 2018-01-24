@@ -24,7 +24,7 @@ abstract class Element extends html.Element {
 
 object Element {
   def define[T <: Element : js.ConstructorTag](companion: ElementCompanion): Unit = {
-    customElements.define(companion.is, js.constructorTag[T].constructor)
+    js.Dynamic.global.customElements.define(companion.is, js.constructorTag[T].constructor)
   }
 }
 
@@ -39,8 +39,3 @@ abstract class ElementCompanion {
   def observers: String = null
 }
 
-@js.native
-@JSGlobal("window.customElements")
-object customElements extends js.Object {
-  def define(name: String, klass: js.Dynamic): Unit = js.native
-}
