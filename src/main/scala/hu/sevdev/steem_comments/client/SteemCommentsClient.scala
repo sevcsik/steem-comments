@@ -1,6 +1,7 @@
 package hu.sevdev.steem_comments.client
 
 import hu.sevdev.polymer
+import hu.sevdev.steem_api.{ TransportComponent, DomWsTransportComponent }
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{ JSExportStatic, JSName }
@@ -21,6 +22,13 @@ object SteemComments extends polymer.ElementCompanion {
 
 object SteemCommentClient {
   def main(args: Array[String]): Unit = {
+
+    val t = new TransportComponent with DomWsTransportComponent {
+      val baseUrl = "ws://echo.websocket.org"
+    }
+
+    println(t.transport.info)
+
     polymer.Element.define[SteemComments](SteemComments)
   }
 }
