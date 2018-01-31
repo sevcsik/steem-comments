@@ -6,7 +6,7 @@
 	<link rel="import" href="node_modules/@webcomponents/shadycss/apply-shim.html">
 	<link rel="import" href="node_modules/@webcomponents/shadycss/custom-style-interface.html">
 	<link rel="import" href="node_modules/@polymer/polymer/polymer.html">
-	<script src="node_modules/@reactivex/rxjs/dist/global/Rx.js">
+	<script src="node_modules/@reactivex/rxjs/dist/global/Rx.js"></script>
 	<script>
 		// https://www.webcomponents.org/polyfills/
 		(function() {
@@ -15,7 +15,7 @@
 				&& 'content' in document.createElement('template')) {
 				// platform is good!
 				var e = document.createElement('script');
-				e.src = 'target/scala-2.11/steem-comments-component-fastopt.js';
+				e.src = 'target/scala-2.12/steem-comments-component-fastopt.js';
 				document.head.appendChild(e);
 			} else {
 				// polyfill the platform!
@@ -26,7 +26,7 @@
 				window.addEventListener('WebComponentsReady', function(e) {
 					// imports are loaded and elements have been registered
 					var e = document.createElement('script');
-					e.src = 'target/scala-2.11/steem-comments-component-fastopt.js';
+					e.src = 'target/scala-2.12/steem-comments-component-fastopt.js';
 					document.head.appendChild(e);
 				});
 			}

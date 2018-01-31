@@ -9,7 +9,7 @@ object Setup {
   def main(args: Array[String]): Unit = {
     object client extends SteemClient with DomWsTransportModule with ConfigModule {
       val config = new Config {
-        def baseUrl = "ws://steemd.steemit.com"
+        def baseUrl = "wss://gtg.steem.house:8090"
       }
     }
 
